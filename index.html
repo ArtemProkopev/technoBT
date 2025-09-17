@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Этап 2.3: описание + предзагрузка CSS -->
+    <meta name="description" content="ТехноМагазин — лучшие цены на электронику" />
+    <link rel="preload" href="css/styles-opt.css" as="style" />
+
+    <!-- Этап 6: кэш + сжатие -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000" />
+    <meta http-equiv="Content-Encoding" content="gzip" />
+
+    <title>ТехноМагазин - Лучшие гаджеты и электроника</title>
+
+    <!-- Этап 2.2: один Google Fonts + display=swap -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Этап 3.1–3.5: минифицированный CSS -->
+    <link rel="stylesheet" href="css/styles-min.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <!-- Этап 5.4: заданы width/height; + сжатый логотип logo-opt.png -->
+                <img src="images/logo-opt.png" alt="ТехноМагазин" width="200" height="80" />
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#products">Товары</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-banner" id="home">
+        <div class="banner-container">
+            <!-- Этап 5.2: заменено на hero-banner-opt.jpg (сжатый); заданы width/height -->
+            <img src="images/hero-banner-opt.jpg" alt="Новые поступления" class="hero-image" width="1920"
+                height="1080" />
+            <div class="hero-content">
+                <h1>Новые поступления техники!</h1>
+                <p>Скидки до 50% на все товары</p>
+                <button class="cta-button" onclick="scrollToProducts()">Смотреть товары</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2>Популярные товары</h2>
+            <div class="products-grid">
+                <!-- Этап 5.2–5.4: все изображения — *-opt.jpg, у карточек loading="lazy" + width/height -->
+                <div class="product-card">
+                    <img src="images/product1-opt.jpg" alt="Смартфон XTech Pro" class="product-image" width="600"
+                        height="400" loading="lazy" />
+                    <h3>Смартфон XTech Pro</h3>
+                    <p class="price">29 990 ₽</p>
+                    <button class="add-to-cart" onclick="addToCart(1)">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/product2-opt.jpg" alt="Ноутбук GameBook Ultra" class="product-image" width="600"
+                        height="400" loading="lazy" />
+                    <h3>Ноутбук GameBook Ultra</h3>
+                    <p class="price">89 990 ₽</p>
+                    <button class="add-to-cart" onclick="addToCart(2)">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/product3-opt.jpg" alt="Наушники AudioMax" class="product-image" width="600"
+                        height="400" loading="lazy" />
+                    <h3>Наушники AudioMax</h3>
+                    <p class="price">12 990 ₽</p>
+                    <button class="add-to-cart" onclick="addToCart(3)">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/product4-opt.jpg" alt="Планшет TabPro" class="product-image" width="600"
+                        height="400" loading="lazy" />
+                    <h3>Планшет TabPro</h3>
+                    <p class="price">45 990 ₽</p>
+                    <button class="add-to-cart" onclick="addToCart(4)">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/product5-opt.jpg" alt="Умные часы WatchSmart" class="product-image" width="600"
+                        height="400" loading="lazy" />
+                    <h3>Умные часы WatchSmart</h3>
+                    <p class="price">19 990 ₽</p>
+                    <button class="add-to-cart" onclick="addToCart(5)">Добавить в корзину</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/product6-opt.jpg" alt="Экшн-камера ActionPro" class="product-image" width="600"
+                        height="400" loading="lazy" />
+                    <h3>Экшн-камера ActionPro</h3>
+                    <p class="price">24 990 ₽</p>
+                    <button class="add-to-cart" onclick="addToCart(6)">Добавить в корзину</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="animated-section">
+        <div class="container">
+            <h2>Почему выбирают нас?</h2>
+            <div class="features-list">
+                <!-- Этап 4.5: анимации теперь через IntersectionObserver в одном scripts-min.js -->
+                <div class="feature-item" data-animation="fadeIn">
+                    <h3>Быстрая доставка</h3>
+                    <p>Доставляем по всей России за 1–3 дня</p>
+                </div>
+                <div class="feature-item" data-animation="slideUp">
+                    <h3>Гарантия качества</h3>
+                    <p>Официальная гарантия на все товары</p>
+                </div>
+                <div class="feature-item" data-animation="zoomIn">
+                    <h3>Низкие цены</h3>
+                    <p>Лучшие цены на рынке</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Телефон: +7 (999) 123-45-67</p>
+                    <p>Email: info@technostore.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Информация</h4>
+                    <p>О компании</p>
+                    <p>Доставка и оплата</p>
+                    <p>Возврат товаров</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Социальные сети</h4>
+                    <p>ВКонтакте</p>
+                    <p>Instagram</p>
+                    <p>Telegram</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ТехноМагазин. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Этап 2.2: скрипт с defer, 3→1 файл; удалены jQuery/bootstrap/slider/unused-script -->
+    <script src="js/scripts-opt.js" defer></script>
+</body>
+
+</html>
